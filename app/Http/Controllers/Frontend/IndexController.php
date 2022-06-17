@@ -32,7 +32,7 @@ class IndexController extends Controller
 
     	$special_deals = Product::where('special_deals',1)->orderBy('id','DESC')->limit(3)->get();
 
-    	$skip_category_0 = Category::skip(0)->first();
+    	$skip_category_0 = Category::skip(0)->first();		
     	$skip_product_0 = Product::where('status',1)->where('category_id',$skip_category_0->id)->orderBy('id','DESC')->get();
 
     	$skip_category_1 = Category::skip(1)->first();
