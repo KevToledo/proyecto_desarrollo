@@ -55,9 +55,9 @@ Route::middleware(['auth:admin'])->group(function(){
 
 
 
-Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
-    return view('admin.index');
-})->name('dashboard')->middleware('auth:admin');
+Route::middleware(['auth:sanctum,admin', 'verified'])
+->get('/admin/dashboard',  [AdminController::class, 'admin_dashboard'])
+->name('dashboard')->middleware('auth:admin');
 
 // Admin All Routes 
 
@@ -77,11 +77,7 @@ Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpd
 
 // User ALL Routes
 
-Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
-	$id = Auth::user()->id;
-    $user = User::find($id);
-    return view('dashboard',compact('user'));
-})->name('dashboard');
+Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', [AdminProfileController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');

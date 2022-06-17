@@ -16,6 +16,7 @@ use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest;
+use App\Models\User; 
 
 class AdminController extends Controller
 {
@@ -109,6 +110,16 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         return app(LogoutResponse::class);
+    }
+
+    public function admin_dashboard(){
+    	return view('admin.index');
+    }
+
+    public function dashboard(){
+    	$id = Auth::user()->id;
+        $user = User::find($id);
+        return view('dashboard',compact('user'));
     }
 }
 
