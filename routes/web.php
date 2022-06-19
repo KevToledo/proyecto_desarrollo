@@ -77,7 +77,7 @@ Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpd
 
 // User ALL Routes
 
-Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', [AdminProfileController::class, 'dashboard'])->name('dashboard');
+Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
