@@ -117,7 +117,7 @@ class AdminController extends Controller
     	return view('admin.index');
     }
 
-    public function admdashboard(){
+    public function admindashboard(){
     	$id = Auth::user()->id;
         $user = User::find($id);
         return view('admin.idex',compact('admin'));
