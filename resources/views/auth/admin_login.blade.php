@@ -32,7 +32,7 @@
 	</div>
 	<div class="p-30 rounded30 box-shadowed b-2 b-dashed">
 
- <form method="POST" action="{{ isset($guard) ? url($guard.'/login') : route('login') }}">
+ <form method="POST" action="{{ isset ? url('/login') : route('login') }}">
             @csrf 
 
 			<div class="form-group">
