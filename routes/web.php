@@ -56,7 +56,7 @@ Route::middleware(['auth:admin'])->group(function(){
 
 
 Route::middleware(['auth:sanctum,admin', 'verified'])
-->get('/admin/dashboard',  [AdminController::class, 'admindashboard'])
+->get('/admin/dashboard',  [AdminController::class, 'admin_dashboard'])
 ->name('dashboard')->middleware('auth:admin');
 
 

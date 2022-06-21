@@ -117,10 +117,10 @@ class AdminController extends Controller
     	return view('admin.index');
     }
 
-    public function admindashboard(){
-    	$id = Auth::user()->id;
-        $user = User::find($id);
-        return view('admin.idex',compact('admin'));
+    public function dashboard(){
+    	$user = Auth::user();
+        
+        return view('dashboard',compact('user'));
     }
 }
 
